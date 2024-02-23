@@ -37,10 +37,6 @@
                 <a href={% url "reserva-delete" reserva.id %}>Apagar</a>
             </td>
         </tr>
-        {% empty %}
-        <tr>
-            <td colspan="4">Nenhuma reserva cadastrada.</td>
-        </tr>
         {% endfor %}
     </tbody>
 </table>

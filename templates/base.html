@@ -1,24 +1,48 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-        {% block title %}Página Inicial{% endblock %}
-    </title>
+    <title>{% block title %}Página Inicial{% endblock %}</title>
     {% block style %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {% endblock %}
-</head>
+  </head>
 
-<body>
+  <body>
+    <header class="menu">
+      <a class="logo" href="{% url 'home' %}"><b>Reserva</b></a>
+      <ul>
+        <li>
+          <a href="{% url "categoria-list" %}">Categorias</a>
+        </li>
+        <li>
+          <a href="{% url "quarto-list" %}">Quartos</a>
+        </li>
+        <li>
+          <a href="{% url "reserva-list" %}">Reservas</a>
+        </li>
+        <li>
+            <a href="{% url "cliente-list" %}">Clientes</a>
+          </li>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">logout</button>
+        </form>
+      </ul>
+    </header>
     {% block content %}{% endblock %}
-    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css"
+    />
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     <script src="{% static 'js/main.js' %}"></script>
-</body>
-
+  </body>
 </html>
