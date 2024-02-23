@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Quarto{% endblock %}
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %}class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<section class="search">
+    <input type="text" id="search" onkeyup="searchFilm()" placeholder="Pesquisar por nome...">
+    <a class="create" href="{% url 'quarto-create' %}">Cadastrar</a>
+</section>
+<table id="myTable">
+    <thead>
+        <tr class="table-header">
+            <th onclick="sortTable(0)">Id</th>
+            <th onclick="sortTable(1)">Descrição</th>
+            <th onclick="sortTable(2)">Categoria</th>
+            <th onclick="sortTable(3)">Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for quarto in object_list %}
+        <tr>
+            <td>{{ quarto.id }}</td>
+            <td>{{ quarto.descricao }}</td>
+            <td>{{ quarto.idcategoria }}</td>
+            <td>
+                <a href={% url "quarto-update" quarto.id %}>Editar</a>
+                <a href={% url "quarto-delete" quarto.id %}>Apagar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhum categoria cadastrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
