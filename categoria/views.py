@@ -9,7 +9,7 @@ from .models import Categoria
 
 class CategoriaListView(LoginRequiredMixin, ListView):
     model = Categoria
-    template_name = 'list.html'
+    template_name = 'categoria/list.html'
 
 
 class CategoriaCreateView(LoginRequiredMixin, CreateView):
