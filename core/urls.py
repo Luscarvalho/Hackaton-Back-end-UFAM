@@ -6,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('categoria/', include('categoria.urls')),
     path('quarto/', include('quarto.urls')),
-    # path('', include('reserva.urls')),
+    path('reserva/', include('reserva.urls')),
 ]
