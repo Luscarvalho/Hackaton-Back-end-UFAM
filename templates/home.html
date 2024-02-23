@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Categoria{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+{% endblock %}
+{% block content %}
+<section class="cards">
+    <a class="card" href={% url "categoria-list" %}>Categoria</a>
+    <a class="card" href={% url "categoria-list" %}>Quartos</a>
+    <a class="card" href={% url "categoria-list" %}>Reservas</a>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">logout</button>
+    </form>
+</section>
+{% endblock %}
