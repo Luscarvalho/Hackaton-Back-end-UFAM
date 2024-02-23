@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView, TemplateView
 
 from .models import Reserva
+from .form import ReservaModelForm
 
 
 class ReservaListView(LoginRequiredMixin, ListView):
@@ -14,8 +15,9 @@ class ReservaListView(LoginRequiredMixin, ListView):
 
 class ReservaCreateView(LoginRequiredMixin, CreateView):
     model = Reserva
+    form_class = ReservaModelForm
     template_name = 'form.html'
-    fields = ['dt_inicial', 'dt_final', 'idclient', 'idquarto']
+    # fields = ['dt_inicial', 'dt_final', 'idclient', 'idquarto']
     success_url = reverse_lazy('reserva-list')
 
     def get_context_data(self, **kwargs):

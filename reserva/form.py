@@ -1,6 +1,6 @@
 from django import forms
 
-
+from .models import Reserva
 
 
 class DateInput(forms.DateInput):
@@ -8,8 +8,9 @@ class DateInput(forms.DateInput):
 
 class ReservaModelForm(forms.ModelForm):
     class Meta:
-        model = MyModel
+        model = Reserva
         fields = '__all__'
         widgets = {
-            'my_date': DateInput(),
+            'dt_inicial': DateInput(),
+            'dt_final': DateInput(),
         }
