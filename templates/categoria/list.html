@@ -33,10 +33,6 @@
                 <a href={% url "categoria-delete" categoria.id %}>Apagar</a>
             </td>
         </tr>
-        {% empty %}
-        <tr>
-            <td colspan="4">Nenhum categoria cadastrada.</td>
-        </tr>
         {% endfor %}
     </tbody>
 </table>

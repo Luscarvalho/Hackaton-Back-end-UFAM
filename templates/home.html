@@ -9,9 +9,9 @@
     <a class="card" href={% url "categoria-list" %}>Categoria</a>
     <a class="card" href={% url "categoria-list" %}>Quartos</a>
     <a class="card" href={% url "categoria-list" %}>Reservas</a>
-    <form method="post" action="{% url 'logout' %}">
+    <!-- <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">logout</button>
-    </form>
+    </form> -->
 </section>
 {% endblock %}

@@ -27,5 +27,8 @@ $(document).ready(function () {
     info: false,
     searching: false,
     responsive: true,
+    language: {
+      emptyTable: "Lista Vazia.",
+    },
   });
 });
